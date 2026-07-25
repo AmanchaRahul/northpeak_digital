@@ -28,6 +28,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body.js-ready {
+  visibility: visible;
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -141,6 +145,12 @@ textarea {
 .section,
 .hero-section {
   padding: 5rem 0;
+}
+
+.deferred-section,
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 960px;
 }
 
 .hero-grid,
@@ -560,6 +570,11 @@ textarea {
 }
 
 @media (max-width: 767px) {
+  .deferred-section,
+  .site-footer {
+    contain-intrinsic-size: 1px 1280px;
+  }
+
   .nav-toggle {
     display: inline-flex;
   }
@@ -600,6 +615,19 @@ textarea {
 
   .hero-copy h1 {
     max-width: 10ch;
+  }
+
+  .hero-panel {
+    display: none;
+  }
+
+  .hero-proof li,
+  .service-card,
+  .result-card,
+  .pricing-card,
+  .contact-form,
+  .site-nav {
+    box-shadow: none;
   }
 
   .section-heading h2 {

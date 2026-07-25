@@ -5,7 +5,235 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="NorthPeak Digital is a performance-focused agency helping ambitious brands turn strategy into measurable growth.">
   <title>NorthPeak Digital | Growth-Led Agency</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    :root {
+      --bg: #f6f1e8;
+      --surface: #fffdfa;
+      --surface-strong: #172121;
+      --text: #172121;
+      --text-soft: #4a5656;
+      --border: rgba(23, 33, 33, 0.12);
+      --accent-deep: #8f3920;
+      --container: min(1120px, calc(100% - 2rem));
+      --font-body: "Segoe UI", "Aptos", "Helvetica Neue", Arial, sans-serif;
+      --font-display: "Trebuchet MS", "Arial Narrow", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background:
+        radial-gradient(circle at top right, rgba(198, 95, 54, 0.18), transparent 28%),
+        linear-gradient(180deg, #fbf7f1 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -3rem;
+      left: 1rem;
+      background: var(--surface-strong);
+      color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(251, 247, 241, 0.96);
+      border-bottom: 1px solid rgba(23, 33, 33, 0.08);
+    }
+
+    .nav-shell {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 5rem;
+    }
+
+    .brand {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      color: var(--text-soft);
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 3rem;
+      height: 3rem;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: var(--surface);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.28rem;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      width: 1rem;
+      height: 2px;
+      background: var(--text);
+      border-radius: 999px;
+    }
+
+    .hero-section {
+      padding: 4rem 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.75rem;
+      color: var(--accent-deep);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .hero-copy h1 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      max-width: 11ch;
+    }
+
+    .hero-text {
+      color: var(--text-soft);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3.25rem;
+      padding: 0.85rem 1.35rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+    }
+
+    .button-primary {
+      background: var(--surface-strong);
+      color: #fff;
+    }
+
+    .button-secondary {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .hero-proof li {
+      padding: 1rem;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(23, 33, 33, 0.08);
+    }
+
+    .hero-proof strong {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .hero-proof span {
+      color: var(--text-soft);
+      font-size: 0.92rem;
+    }
+
+    .hero-panel {
+      min-height: 22rem;
+      border-radius: 28px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(239, 231, 218, 0.72)),
+        var(--surface);
+      border: 1px solid rgba(23, 33, 33, 0.08);
+    }
+
+    @media (max-width: 767px) {
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .site-nav {
+        display: none;
+      }
+
+      .hero-grid,
+      .hero-proof {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy h1 {
+        max-width: 10ch;
+      }
+
+      .hero-panel {
+        display: none;
+      }
+    }
+  </style>
+  <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -70,7 +298,7 @@
       </div>
     </section>
 
-    <section class="section" id="services">
+    <section class="section deferred-section" id="services">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Services</p>
@@ -114,7 +342,7 @@
       </div>
     </section>
 
-    <section class="section section-dark" id="results">
+    <section class="section section-dark deferred-section" id="results">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Results &amp; Testimonials</p>
@@ -146,7 +374,7 @@
       </div>
     </section>
 
-    <section class="section" id="pricing">
+    <section class="section deferred-section" id="pricing">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Pricing</p>
@@ -194,7 +422,7 @@
       </div>
     </section>
 
-    <section class="section contact-section" id="contact">
+    <section class="section contact-section deferred-section" id="contact">
       <div class="container contact-grid">
         <div class="section-heading contact-copy">
           <p class="eyebrow">Contact</p>
