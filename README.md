@@ -1,6 +1,9 @@
+I used AI tools to speed up parts of the workflow, mainly for brainstorming layout structure, refining copy, and helping identify performance and accessibility improvements during Lighthouse optimization. All final implementation decisions, code edits, design choices, and submission packaging were reviewed and finalized by me.
+
+
 # NorthPeak Digital
 
-NorthPeak Digital is a minimal static one-page agency website built from the internship PRD using plain HTML, CSS, and JavaScript.
+NorthPeak Digital is a minimal static one-page agency website built for the internship using plain HTML, CSS, and JavaScript.
 
 ## Live site
 
